@@ -1,0 +1,827 @@
+@import 'app/libs/normalize-css/normalize';
+
+//colors
+//main colors
+$red: #d73737;
+$green: #1ea005;
+$light: #f5f5f5;
+$dark: #303030;
+//other colors
+$white: #fff;
+$black: #000;
+$grey: #f5f5f5;
+$light-grey: #f8f8f8;
+$dark-grey: #ccc;
+
+
+//sizing
+$border-radius: 15px;
+$font-size: 13px;
+$input-height: 26px;
+$standart-padding: $font-size * 1.2;
+
+$media-smartphones: 480px;
+$media-tablets: 800px;
+
+//animation
+/* Анимация для плавного появления содержимого */
+@-webkit-keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@-moz-keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@-o-keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+//common mixins
+@mixin gradient($deg: 180, $colors...) {
+	background-image: -webkit-linear-gradient($deg + deg, $colors);
+	background-image: -moz-linear-gradient($deg + deg, $colors);
+	background-image: -o-linear-gradient($deg + deg, $colors);
+	background-image: -ms-linear-gradient($deg + deg, $colors);
+	background-image: linear-gradient($deg + deg, $colors);
+}
+
+@mixin button-bg(
+	//background
+	$color1,
+	$color2,
+	$font-color1,
+	//background active
+	$color3,
+	$color4,
+	$font-color2,
+	//border color
+	$color5,
+	$color6,
+	//border color active
+	$color7,
+	$color8) {
+		@include gradient(180, $color1, $color2);
+		color: $font-color1;
+		&:hover {
+			@include gradient(180, $color2, $color1);
+		}
+		&:active {
+			@include gradient(180, $color3, $color4);
+			color: $font-color2;
+		}
+
+		&::after {
+			@include gradient(180, $color5, $color6);
+			&:hover {@include gradient(180, $color6, $color5);}
+			&:active {@include gradient(180, $color7, $color8);}
+		}
+}
+
+@mixin button-size(
+	$height: 32px,
+	$min: 32px,
+	$width: 100px,
+	$font: 11px,
+	$padding: 10px
+) {
+	height: $height;
+	max-width: 500px;
+	min-width: $min;
+	width: $width;
+	padding: 0 $padding;
+	font-size: $font;
+	line-height: $height - 2;
+	text-transform: uppercase;
+}
+
+@mixin transition($params...) {
+	-webkit-transition: $params;
+	-moz-transition: $params;
+	-o-transition: $params;
+	transition: $params;
+}
+
+//common styles
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: $font-size;
+    color: $dark;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+}
+h2 {
+	font-size: 18px;
+	font-weight: bold;
+}
+h3 {
+	font-size: 13px;
+	font-weight: bold;
+}
+h4 {
+	font-size: 13px;
+	font-weight: normal;
+}
+h5 {
+	font-size: 10px;
+	font-weight: normal;
+}
+h6 {
+	font-size: 8px;
+	font-weight: bold;
+}
+
+input,
+button,
+select,
+option {
+	border: 1px solid #d9d9d9;
+	border-radius: 3px;
+	background-color: #f8f8f8;
+	padding: 0 4px;
+	height: $input-height; 
+	box-sizing: border-box;
+}
+
+//helper styles
+.not-margin {margin: 0!important;}
+.no-bold {font-weight: normal;}
+.text-center {text-align: center;}
+.text-right  {text-align: right;}
+
+
+
+//buttons & icons
+//button sets
+*[class^="button"],
+input[class^="button"] {
+	display: inline-block;
+	position: relative;
+	border-radius: $border-radius;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	font-weight: bold;
+	&:hover {text-decoration: none;}
+	&::after {
+		content: '';
+		position: absolute;
+		border-radius: $border-radius;
+		top: -1px;
+		bottom: -1px;
+		left: -1px;
+		right: -1px;
+		z-index: -1;
+	}
+
+	&[class*="_set1"] {@include button-size($height: 26px, $min: 40px, $width: auto)}
+	&[class*="_set2"] {@include button-size($height: 20px, $min: 24px, $width: auto, $font: 10px)}
+	&[class*="_set3"] {@include button-size()}
+
+	&[class*="_red"] 	 {@include button-bg(
+									$color1: #f15254, 
+									$color2: #d93a3c, 
+									$font-color1: #fff,
+									$color3: #d8393b,
+									$color4: #d8393b,
+									$font-color2: #fff,
+									$color5: #f15254, 
+									$color6: #d93a3c, 
+									$color7: #d8393b, 
+									$color8: #d8393b
+									)}
+
+	&[class*="_green"] 	 {@include button-bg(
+									$color1: #33b617, 
+									$color2: #1da001, 
+									$font-color1: #fff, 
+									$color3: #3d7a3c, 
+									$color4: #5eae5e, 
+									$font-color2: #fff, 
+									$color5: #33b617, 
+									$color6: #1da001,
+									$color7: #3d7a3c, 
+									$color8: #5eae5e
+									)}
+
+	&[class*="_gray"] 	 {@include button-bg(
+									$color1: #fff, 
+									$color2: #e7e7e7, 
+									$font-color1: $dark, 
+									$color3: #1da001, 
+									$color4: #33b617, 
+									$font-color2: #fff, 
+									$color5: #eee, 
+									$color6: #aaa, 
+									$color7: #3d7a3c, 
+									$color8: #5eae5e
+									)}
+
+	&[class*="_black"] 	 {@include button-bg(
+									$color1: #676567, 
+									$color2: #303030, 
+									$font-color1: #fff, 
+									$color3: #303030, 
+									$color4: #676567, 
+									$font-color2: #fff, 
+									$color5: #303030, 
+									$color6: #303030, 
+									$color7: #303030, 
+									$color8: #303030
+									)}
+
+
+
+	&[class*="_white"] 	 {
+		background-color: $white;
+		border-color: $white;
+		color: $red;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	&[class*="_nocolor"] {
+		background-color: rgba($white, 0);
+		border-color: inherit;
+		color: inherit;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+
+//button close
+button.close {
+	@mixin close(
+		$position-type,
+		$cross-size,
+		$cross-color,
+		$cross-opacity,
+		$position-top,
+		$position-right,
+		$position-bottom,
+		$position-left
+		) {
+			position: $position-type;
+			background: transparent;
+			border: 0;
+			color: $cross-color;
+			opacity: $cross-opacity;
+			font-size: $cross-size;
+			font-weight: normal;
+			outline: none;
+			top: $position-top;
+			right: $position-right;
+			bottom: $position-bottom;
+			left: $position-left;
+			/* Крестик */
+			span.close__icon {
+				display: block;
+				&::before {
+					content: '×';
+					font-family: "Times New Roman";
+					text-shadow: none;
+				}
+			}
+			&:hover {
+				color: inherit;
+				opacity: 1;
+			}
+	}
+	/* Кнопка "закрыть" в блоке .red-window */
+	&_in-red-window {@include close(absolute, ($font-size * 3), $white, 0.6, 0, 10px, auto, auto);}
+	/* Кнопка в фильтре */
+	&_grey {@include close(relative, ($font-size * 2), #666, 1, -2px, 5px, auto, auto);}
+}
+
+//warning message
+.warning {
+	border-color: $red;
+}
+
+
+
+//swicher
+.switch {
+	@mixin switch(
+		$switch-width,  	// ширина подложки
+		$switch-height, 	// высота подложки
+		$switch-radius, 	// border-radius для подложки
+		$switch-background, // цвет подложки
+		$ring,   			// размер круга/кнопки
+		$ring-radius 		// border-radius для кнопки
+		) {
+			&,
+			&__label,
+			&__slider {
+				width: $switch-width;
+				height: $switch-height;
+				cursor: pointer;
+			}
+			&__check:checked + &__label &__slider_on {
+			width: $switch-width;
+			}
+			&__check:checked + &__label &__slider_off {
+			width: $switch-height;
+			}
+			/* кнопка переключателя */
+			&__slider_off:after {
+				width: $ring;
+				height: $ring;
+				border-radius: $ring-radius;
+				top: ($switch-height / 2) - ($ring / 2);
+			}
+			&__slider {
+				border-radius: $switch-radius;
+				box-shadow:
+					0 0 1px 2px rgba(0, 0, 0, 0.15) inset,
+					0 0 2px rgba(0, 0, 0, 0.1) inset,
+					0 4px 2px 1px rgba(0, 0, 0, 0.1) inset,
+					0 $switch-radius $switch-radius 0 rgba(0, 0, 0, 0.07) inset;
+				&_on {
+					width: $switch-height;
+					background: $switch-background;
+				}
+			}
+	}
+	@include switch(26px, 12px, 6px, $green, 16px, 50%);
+	position: relative;
+	display: inline-block;
+	&__check,
+	&__label,
+	&__slider,
+	&__slider_off:after {position: absolute;}
+	&__check {opacity: 0;}
+	&__label {
+		top: 0;
+		left: 0;
+	}
+	&__slider {
+		top: 0;
+		@include transition(width 0.15s linear);
+		&_on {
+			left: 0;
+		}
+		&_off {
+			right: 0;
+			background: $white;
+			&:after {
+				content: '';
+				left: -2px;
+				background: $white;
+				@include gradient(0, rgba($black, 0.06) 0%, rgba($white, 0.06) 100%);
+				box-shadow: 0 0 1px 1px #fff inset, 0 0 2px 1px rgba(0, 0, 0, 0.3);
+			}
+		}
+	}
+}
+
+
+
+//tabs
+$tabs-number: 2; //the number of tabs
+.tabs {
+	display: flex;
+	flex-direction: column;
+	min-height: 326px;
+	/* Стили переключателей вкладок (табов) */
+	&__header {
+		display: flex;
+		flex-wrap: nowrap;
+		&_title {
+			display: inline-block;
+			position: relative;
+			flex-basis: 100% / $tabs-number;
+			font-weight: bold;
+			text-align: center;
+			height: $font-size * 2.5;
+			line-height: $font-size * 2.5;
+			font-size: $font-size;
+			background: $grey;
+			border: 1px solid $dark-grey;
+			border-left: none;
+			cursor: pointer;
+			& > * {position: inherit;}
+			&:last-of-type {border-right: none;}
+		}
+	}
+	/* Скрыть чекбоксы */
+	&__header > input[type=radio].tabs__header_title {
+		display: none;
+		position: absolute;
+		opacity: 0;
+		/* Стили для активной вкладки */
+		&:checked+label {
+			background: $white;
+			border-bottom: none;
+		}
+	}
+	/* Стили секций с содержанием */
+	& > section:first-of-type {
+		display: block;
+	}
+	& > section {
+		display: none;
+		background: $white;
+		padding: $standart-padding;
+		div {
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+	}
+}
+
+
+
+//route form (step 1)
+.route-form {
+	@mixin route-form(
+		$rf-width,
+		$rf-height
+		) {
+			width: $rf-width;
+			height: $rf-height;
+			@media screen and (max-width: $media-tablets) {
+				width: 100%;
+				height: 100%;
+			}
+	}
+	
+	@include route-form(400px, auto);
+	position: relative;
+	border: 1px solid $dark-grey;
+	font-size: $font-size;
+	&__header {
+		background: url(../img/logo.svg) 95% 30% no-repeat $red;
+		color: $white;
+		font-weight: bold;
+		padding: $font-size 90px $font-size $font-size;
+	}
+	&__footer {
+		padding: 0 $standart-padding ($font-size * 0.8) $standart-padding;
+	}
+	
+	/* inputs */
+	&__labels {
+		display: flex;
+    	justify-content: space-between;
+		& > * {
+			flex-grow: 1;
+		}
+		
+		& > input,
+		& > select,
+		& > button {
+			margin-right: $standart-padding;
+		}
+
+		.switch__label {
+			top: 3px;
+		}
+	}
+	
+	&__labels:not(:last-of-type) {
+		margin-bottom: $standart-padding / 2;
+	}
+}
+
+
+//Personal info - table 
+.personal {
+	$p-padding: 12px;
+
+	width: 100%;
+
+	&__title > td,
+	&__client > td {padding-bottom: $p-padding;}
+	& > tbody > tr > td:not(:last-child) {padding-right: $p-padding;}
+	& > tbody > tr > td.personal_square {
+		width: 26px;
+		padding-right: 0;
+	}
+
+	&_date {
+		display: flex;
+		justify-content: space-between;
+		&_no {
+			display: flex;
+			justify-content: space-between;
+			color: $dark-grey;
+		}
+	}
+
+	& input,
+	& select {
+		width: 100%;
+	}
+}
+
+
+
+//red-window
+.red-window {
+	//display: none;
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	background-color: $red;
+	color: $white;
+	text-align: center;
+	&__content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+		& > * {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+		& > p:last-of-type {
+			padding-bottom: 40px;
+		}
+		& > h1,
+		& > h2,
+		& > h3,
+		& > h4,
+		& > h5,
+		& > h5 {
+			color: $white;
+			margin-top: 0;
+		}
+	}
+	&__full-btn {
+		padding: 12px 0;
+		& > input[type=button] {width: 180px;}
+	}
+	
+	&__bottom-btn {
+		position: absolute;
+		bottom: 30px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+
+
+//
+
+
+
+//links: sing in & sing up
+.sign-in-up {
+	font-weight: bold;
+	& a,
+	& a:visited {
+		text-decoration: none;
+		color: $dark;
+	}
+	& a:hover {
+		color: $red;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TEST - тестовый вспомогательный класс
+.TEST {
+    display: flex;
+	justify-content: space-between;
+    & > * {
+        flex-basis: 30%;
+    }
+}
+//TEST - конец
+/////////////////// ПЕРЕРАБОТАТЬ //////////////////
+
+
+/*** Buttons, Icons etc. ***/
+
+.question {
+	@mixin question-sizing($q-size, $border) {
+		width: $q-size;
+		height: $q-size;
+		border-width: $border;
+		&::before {
+			line-height: ($q-size - ($border * 2));
+		}
+	}
+	@mixin question-position($q-top, $q-left, $q-bottom, $q-right) {
+		top: $q-top;
+		left: $q-left;
+		bottom: $q-bottom;
+		right: $q-right;
+	}
+	
+	@include question-sizing(20px, 2px);
+	@include question-position(-2px, -22px, 0, 0);
+	display: inline-block;
+	position: absolute;
+	background-color: $red;
+	font-size: $font-size;
+	color: $white;
+	border-color:  $white;
+	border-radius: 50%;
+	border-style: solid;
+	&::before {
+		content: "?";
+		display: block;
+	}
+}
+
+
+/* квадратные инпуты */
+input.square {
+	@mixin square-sizing() {
+		width: $input-height;
+		height: $input-height;
+		flex-grow: 0;
+	}
+	@mixin square-image($s-position1, $s-position2) {
+		@include square-sizing();
+		background-image: url(../img/trains-services.png);
+		background-position: $s-position1 $s-position2;
+		background-repeat: no-repeat;
+		border-color: $white;
+		&:hover {
+			border-color: $dark-grey;
+		}
+	}
+	
+	@include square-sizing();
+	
+	&_top {
+		@include square-image(0, -1672px);
+	}
+	&_bottom {
+		@include square-image(0, -949px);
+	}
+}
+
+.person {
+	@mixin person-image($url) {
+		display: inline-block;
+		vertical-align: middle;
+		flex-grow: 0;
+		width: $input-height;
+		height: $input-height;
+		background-image: $url;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+	} 
+	
+	&_adult {
+		@include person-image(url(../img/adult-icon.svg));
+	}
+	&_child {
+		@include person-image(url(../img/child-icon.svg));
+	}
+	&_infant {
+		@include person-image(url(../img/infant-icon.svg));
+	}
+}
+
+
+/*** КОНЕЦ - Buttons, Icons etc. ***/
+
+
+/*** TRAINS (step 2) ***/
+.trains {
+	
+	$tr-border-radius: 5px;
+	$items-number: 4;
+	
+	&-header,
+	&-legs,
+	&-main,
+	&-footer {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	&-header,
+	&-footer {
+		flex-direction: row;
+		justify-content: space-between;
+		@media screen and (max-width: $media-smartphones) {
+			flex-direction: column-reverse;
+			& > div {
+				display: flex;
+				justify-content: space-between;
+    			align-items: center;
+				& > * {flex-grow: 1;}
+			}
+		}
+	}
+	
+	/* Block "LEG" */
+	&-legs {
+		/*скругленные уголки*/
+		& > div:first-child {
+			border-top-left-radius: $tr-border-radius;
+			border-top-right-radius: $tr-border-radius;
+		}
+		& > div:last-child {
+			border-bottom-left-radius: $tr-border-radius;
+			border-bottom-right-radius: $tr-border-radius;
+		}
+		/*первый блок, накрасном фоне*/
+		&__header {
+			background-color: $red;
+			color: $white;
+		}
+		/*фильтр*/
+		&__filters {
+			background-color: $grey;
+			border: 2px solid $dark-grey;
+			border-top: 0;
+			& > div:first-child {background-color: $light-grey;}
+			
+			&__sort,
+			&__tags,
+			&__item {
+				display: flex;
+				justify-content: space-between;
+				align-content: stretch;
+				align-items: stretch;
+				@media screen and (max-width: $media-tablets) {
+					flex-wrap: wrap;
+					align-items: flex-start;
+				}
+			}
+			&__item {
+//				flex-basis: 100% / $items-number;
+				&:nth-child(1),
+				&:nth-child(2),
+				&:nth-child(3) {flex-basis: 28%;}
+				&:nth-child(4) {flex-basis: 16%;}
+				@media screen and (max-width: $media-tablets) {
+					flex-basis: 50%;
+					flex-direction: column;
+					select {width: 100%;}
+				}
+			}
+
+			&__sort {}
+			&__tags {}
+			&__item {
+				font-variant: small-caps;
+				text-transform: lowercase;
+			}
+		}
+	}
+	
+	/*table*/
+	&-main {
+		&__table {
+			$thead-radius: 10px;
+			
+			width: 100%;
+			& thead {
+				background-color: #4b4a4a;
+				color: $white;
+				font-size: 10px;
+				text-align: left;
+				& td:first-child {border-radius: $thead-radius 0 0 $thead-radius;}
+				& td:last-child {border-radius: 0 $thead-radius $thead-radius 0;}
+			}
+			& tbody {
+				border-bottom: 2px solid rgba($red, 0.5);
+			}
+		}
+	}
+}
+/*** КОНЕЦ - TRAINS (step 2) ***/
