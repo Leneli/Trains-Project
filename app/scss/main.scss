@@ -613,6 +613,30 @@ $tabs-number: 2; //the number of tabs
 		flex-direction: column;
 		justify-content: flex-end;
 	}
+
+
+	&-leg {
+		display: flex;
+		align-items: center;
+		background: $red;
+		border-radius: 4px 4px 0 0;
+		padding: 8px 26px;
+
+		h3 {
+			color: $white;
+			margin: 0;
+		}
+
+		&__field {
+			background-color: $white;
+			width: 220px;
+			height: 30px;
+			border-radius: 2px;
+			margin-left: 3px;
+			padding-left: 10px;
+		}
+		&__field:first-of-type {margin-left: 16px;}
+	}
 }
 
 
@@ -643,7 +667,7 @@ $tabs-number: 2; //the number of tabs
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-image: url("/img/scale.png");
+	background-image: url(../img/scale.png);
 	background-size: 98% 46px;
 	background-position: 50% -27px;
 	background-repeat: no-repeat;
@@ -659,7 +683,7 @@ $tabs-number: 2; //the number of tabs
 		font-weight: bold;
 		font-size: 10px;
 		color: #a7a7a7;
-		background-image: url("/img/scale.png");
+		background-image: url(../img/scale.png);
 		background-position: 50% 2px;
 		background-repeat: no-repeat;
 		&::before {
@@ -667,7 +691,7 @@ $tabs-number: 2; //the number of tabs
 		}
 		
 		&.activ {
-			background-image: url("/img/scale-large_pill.png");
+			background-image: url(../img/scale-large_pill.png);
 			background-size: 29px 29px;
 			background-position: 50% -1px;
 			font-size: 11px;
@@ -679,7 +703,7 @@ $tabs-number: 2; //the number of tabs
 				content: "";
 				width: 16px;
 				height: 16px;
-				background-image: url("/img/scale-small_pill.png");
+				background-image: url(../img/scale-small_pill.png);
 				background-position: 50% 50%;
 			}
 		}
