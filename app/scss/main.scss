@@ -1,4 +1,4 @@
-@import 'app/libs/normalize-css/normalize';
+//@import 'app/libs/normalize';
 
 //colors
 //main colors
@@ -161,6 +161,7 @@ option {
 .no-bold {font-weight: normal;}
 .text-center {text-align: center;}
 .text-right  {text-align: right;}
+.text_gray {color: $dark-grey;}
 
 
 
@@ -261,6 +262,8 @@ input[class^="button"] {
 			transform: scale(1.1);
 		}
 	}
+
+	&[class*="_circle"] {width: 26px; height: 26px;}
 }
 
 //button close
@@ -357,7 +360,7 @@ button.close {
 				}
 			}
 	}
-	@include switch(26px, 12px, 6px, $green, 16px, 50%);
+	@include switch(26px, 12px, 6px, #41fb19, 16px, 50%);
 	position: relative;
 	display: inline-block;
 	&__check,
@@ -492,6 +495,8 @@ $tabs-number: 2; //the number of tabs
 			margin-right: $standart-padding;
 		}
 
+		& > span {line-height: $input-height;}
+
 		.switch__label {
 			top: 3px;
 		}
@@ -503,8 +508,8 @@ $tabs-number: 2; //the number of tabs
 }
 
 
-//Personal info - table 
-.personal {
+//Journey details and Personal info - tables
+.details-table {
 	$p-padding: 12px;
 
 	width: 100%;
@@ -512,19 +517,14 @@ $tabs-number: 2; //the number of tabs
 	&__title > td,
 	&__client > td {padding-bottom: $p-padding;}
 	& > tbody > tr > td:not(:last-child) {padding-right: $p-padding;}
-	& > tbody > tr > td.personal_square {
+	& > tbody > tr > td.details-table_square {
 		width: 26px;
 		padding-right: 0;
 	}
 
-	&_date {
+	&_flex {
 		display: flex;
 		justify-content: space-between;
-		&_no {
-			display: flex;
-			justify-content: space-between;
-			color: $dark-grey;
-		}
 	}
 
 	& input,
@@ -532,7 +532,6 @@ $tabs-number: 2; //the number of tabs
 		width: 100%;
 	}
 }
-
 
 
 //red-window
@@ -616,7 +615,9 @@ $tabs-number: 2; //the number of tabs
 
 
 
-//TEST - тестовый вспомогательный класс
+//TEST - тестовый вспомогательный класс для первого шага
+//чтобы для наглядности разместить все окна рядом
+//по завершении - УДАЛИТЬ
 .TEST {
     display: flex;
 	justify-content: space-between;
@@ -704,7 +705,7 @@ input.square {
 	} 
 	
 	&_adult {
-		@include person-image(url(../img/adult-icon.svg));
+		@include person-image(url(../img/icons/adult_icon.png));
 	}
 	&_child {
 		@include person-image(url(../img/child-icon.svg));
