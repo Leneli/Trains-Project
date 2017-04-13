@@ -51,8 +51,8 @@ gulp.task("browser-sync", function () {
 
 //Отслеживание изменений в стилях и .html
 gulp.task("watch", ["browser-sync", "sass"], function () {
-    gulp.watch("app/scss/**/*.scss", ["sass"]);
-    gulp.watch("app/*.html", browserSync.reload);
+    gulp.watch("app/scss/**/*.scss", ["sass", browserSync.reload]);
+    gulp.watch("app/**/*.html", browserSync.reload);
 });
 
 //Очистить при пересборке директорию DIST от старых файлов
