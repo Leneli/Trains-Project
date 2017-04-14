@@ -657,6 +657,46 @@ input[class^="button"] {
         background-image: -webkit-gradient(linear, left top, left bottom, from(#303030), to(#303030));
         background-image: -webkit-linear-gradient(top, #303030, #303030);
         background-image: linear-gradient(180deg, #303030, #303030); }
+  *[class^="button"][class*="_wt-gray"],
+  input[class^="button"][class*="_wt-gray"] {
+    background-image: -webkit-linear-gradient(180deg, #fff, #f7f7f7);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7f7f7));
+    background-image: -webkit-linear-gradient(top, #fff, #f7f7f7);
+    background-image: linear-gradient(180deg, #fff, #f7f7f7);
+    color: #303030;
+    text-transform: none;
+    font-size: 11px; }
+    *[class^="button"][class*="_wt-gray"]:hover,
+    input[class^="button"][class*="_wt-gray"]:hover {
+      background-image: -webkit-linear-gradient(180deg, #f7f7f7, #fff);
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#fff));
+      background-image: -webkit-linear-gradient(top, #f7f7f7, #fff);
+      background-image: linear-gradient(180deg, #f7f7f7, #fff); }
+    *[class^="button"][class*="_wt-gray"]:active,
+    input[class^="button"][class*="_wt-gray"]:active {
+      background-image: -webkit-linear-gradient(180deg, #fff, #fff);
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+      background-image: -webkit-linear-gradient(top, #fff, #fff);
+      background-image: linear-gradient(180deg, #fff, #fff);
+      color: #303030; }
+    *[class^="button"][class*="_wt-gray"]::after,
+    input[class^="button"][class*="_wt-gray"]::after {
+      background-image: -webkit-linear-gradient(180deg, #eee, #aaa);
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#aaa));
+      background-image: -webkit-linear-gradient(top, #eee, #aaa);
+      background-image: linear-gradient(180deg, #eee, #aaa); }
+      *[class^="button"][class*="_wt-gray"]::after:hover,
+      input[class^="button"][class*="_wt-gray"]::after:hover {
+        background-image: -webkit-linear-gradient(180deg, #aaa, #eee);
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#eee));
+        background-image: -webkit-linear-gradient(top, #aaa, #eee);
+        background-image: linear-gradient(180deg, #aaa, #eee); }
+      *[class^="button"][class*="_wt-gray"]::after:active,
+      input[class^="button"][class*="_wt-gray"]::after:active {
+        background-image: -webkit-linear-gradient(180deg, #aaa, #aaa);
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#aaa));
+        background-image: -webkit-linear-gradient(top, #aaa, #aaa);
+        background-image: linear-gradient(180deg, #aaa, #aaa); }
   *[class^="button"][class*="_white"],
   input[class^="button"][class*="_white"] {
     background-color: #fff;
@@ -731,6 +771,15 @@ button.close {
     button.close_grey:hover {
       color: inherit;
       opacity: 1; }
+
+.square input.square,
+.square button.square {
+  width: 26px;
+  height: 26px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0; }
 
 .warning {
   border-color: #d73737; }
@@ -1049,15 +1098,53 @@ button.close {
     color: #fff;
     margin: 0; }
   .trains-leg__field {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     background-color: #fff;
     width: 220px;
     height: 30px;
     -webkit-border-radius: 2px;
             border-radius: 2px;
-    margin-left: 3px;
-    padding-left: 10px; }
+    margin-right: 3px;
+    padding: 0 10px; }
   .trains-leg__field:first-of-type {
     margin-left: 16px; }
+
+.trains-filter {
+  background: #f5f5f5;
+  color: #666;
+  border: 2px solid #f5f5f5; }
+  .trains-filter__header {
+    background: #fff;
+    height: 44px; }
+  .trains-filter__header, .trains-filter__body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .trains-filter__body > div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
 
 .sign-in-up {
   font-weight: bold;
@@ -1124,6 +1211,39 @@ button.close {
       background-image: url(../img/scale-small_pill.png);
       background-position: 50% 50%; }
 
+.icon__arrow-right {
+  background-image: url("../img/svg/arrow-right.svg");
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px; }
+
+.icon__button-top {
+  background-image: url("../img/icons/revert_bot.png");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px; }
+  .icon__button-top:hover {
+    background-image: url("../img/icons/revert-bot-click.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px; }
+
+.icon__button-bottom {
+  background-image: url("../img/icons/revert_top.png");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px; }
+  .icon__button-bottom:hover {
+    background-image: url("../img/icons/revert-top-click.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px; }
+
 .TEST {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1161,41 +1281,6 @@ button.close {
   .question::before {
     content: "?";
     display: block; }
-
-/* квадратные инпуты */
-input.square {
-  width: 26px;
-  height: 26px;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0; }
-  input.square_top {
-    width: 26px;
-    height: 26px;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-        -ms-flex-positive: 0;
-            flex-grow: 0;
-    background-image: url(../img/trains-services.png);
-    background-position: 0 -1672px;
-    background-repeat: no-repeat;
-    border-color: #fff; }
-    input.square_top:hover {
-      border-color: #ccc; }
-  input.square_bottom {
-    width: 26px;
-    height: 26px;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-        -ms-flex-positive: 0;
-            flex-grow: 0;
-    background-image: url(../img/trains-services.png);
-    background-position: 0 -949px;
-    background-repeat: no-repeat;
-    border-color: #fff; }
-    input.square_bottom:hover {
-      border-color: #ccc; }
 
 .person_adult {
   display: inline-block;

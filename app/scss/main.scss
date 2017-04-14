@@ -245,7 +245,20 @@ input[class^="button"] {
 									$color8: #303030
 									)}
 
-
+	&[class*="_wt-gray"] 	 {@include button-bg(
+									$color1: #fff, 
+									$color2: #f7f7f7, 
+									$font-color1: $dark, 
+									$color3: #fff, 
+									$color4: #fff, 
+									$font-color2: $dark, 
+									$color5: #eee, 
+									$color6: #aaa, 
+									$color7: #aaa, 
+									$color8: #aaa
+									);
+									text-transform: none;
+									font-size: 11px;}
 
 	&[class*="_white"] 	 {
 		background-color: $white;
@@ -309,6 +322,18 @@ button.close {
 	&_in-red-window {@include close(absolute, ($font-size * 3), $white, 0.6, 0, 10px, auto, auto);}
 	/* Кнопка в фильтре */
 	&_grey {@include close(relative, ($font-size * 2), #666, 1, -2px, 5px, auto, auto);}
+}
+
+//button square
+.square {
+	@mixin square-sizing($s-height: $input-height) {
+		width: $s-height;
+		height: $s-height;
+		flex-grow: 0;
+	}
+
+	input.square,
+	button.square {@include square-sizing();}
 }
 
 //warning message
@@ -614,7 +639,7 @@ $tabs-number: 2; //the number of tabs
 		justify-content: flex-end;
 	}
 
-
+	//Red field with routes
 	&-leg {
 		display: flex;
 		align-items: center;
@@ -628,14 +653,43 @@ $tabs-number: 2; //the number of tabs
 		}
 
 		&__field {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 			background-color: $white;
 			width: 220px;
 			height: 30px;
 			border-radius: 2px;
-			margin-left: 3px;
-			padding-left: 10px;
+			margin-right: 3px;
+			padding: 0 10px;
 		}
 		&__field:first-of-type {margin-left: 16px;}
+	}
+
+	//Filter
+	&-filter {
+		background: $grey;
+		color: #666;
+		border: 2px solid $grey;
+
+		&__header {
+			background: $white;
+			height: 44px;
+		}
+
+		//flex
+		&__header,
+		&__body  {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&__body {
+			& > div {
+				display: flex;
+				
+			}
+		}
 	}
 }
 
@@ -717,7 +771,34 @@ $tabs-number: 2; //the number of tabs
 
 
 
+// Icons
+.icon {
+	@mixin icon(
+			$url: "../img/icons/trains-services-sdbe83baf45.png", 
+			$bg-position-x: 0, 
+			$bg-position-y: 0,
+			$i-width: 24px,
+			$i-height: 24px
+			) {
+		background-image: url($url);
+		background-position: $bg-position-x $bg-position-y;
+		background-repeat: no-repeat;
+		width: $i-width;
+		height: $i-height;
+	}
 
+	&__arrow-right {@include icon($url:"../img/svg/arrow-right.svg", $bg-position-y: 50%)}
+
+	&__button-top    {
+		@include icon($url:"../img/icons/revert_bot.png", $bg-position-x: 50%, $bg-position-y: 50%);
+		&:hover {@include icon($url:"../img/icons/revert-bot-click.png", $bg-position-x: 50%, $bg-position-y: 50%)}
+	}
+	&__button-bottom {@include icon($url:"../img/icons/revert_top.png", $bg-position-x: 50%, $bg-position-y: 50%);
+		&:hover {@include icon($url:"../img/icons/revert-top-click.png", $bg-position-x: 50%, $bg-position-y: 50%)}
+	}
+
+
+}
 
 
 
@@ -771,33 +852,7 @@ $tabs-number: 2; //the number of tabs
 }
 
 
-/* квадратные инпуты */
-input.square {
-	@mixin square-sizing() {
-		width: $input-height;
-		height: $input-height;
-		flex-grow: 0;
-	}
-	@mixin square-image($s-position1, $s-position2) {
-		@include square-sizing();
-		background-image: url(../img/trains-services.png);
-		background-position: $s-position1 $s-position2;
-		background-repeat: no-repeat;
-		border-color: $white;
-		&:hover {
-			border-color: $dark-grey;
-		}
-	}
-	
-	@include square-sizing();
-	
-	&_top {
-		@include square-image(0, -1672px);
-	}
-	&_bottom {
-		@include square-image(0, -949px);
-	}
-}
+
 
 .person {
 	@mixin person-image($url) {
