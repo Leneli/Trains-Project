@@ -2,139 +2,180 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trains - step 2</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trains - template</title>
 
-    <!-- default styles on site -->
-    <link rel="stylesheet" href="https://trains.realrussia.co.uk/css/jquery/redmond/jquery-ui-1.12.1.min.css">
-    <link rel="stylesheet" href="https://trains.realrussia.co.uk/css/buy-tickets.css?v=98981293">
+	<!-- default styles on site -->
+	<link rel="stylesheet" href="https://trains.realrussia.co.uk/css/jquery/redmond/jquery-ui-1.12.1.min.css">
+	<link rel="stylesheet" href="https://trains.realrussia.co.uk/css/buy-tickets.css?v=98981293">
 
-    <!-- my styles -->
-    <link rel="stylesheet" href="css/styles.css">
+	<!-- my styles -->
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body style="width: 90%; margin: auto;">
 
-    <div class="trains-header">
-        <div>
-            <h2 class="text_dark">Select train</h2>
-            <div class="scale">
-                <div class="scale__item done" data-step="1"></div>
-                <div class="scale__item activ" data-step="2"></div>
-                <div class="scale__item" data-step="3"></div>
-                <div class="scale__item" data-step="4"></div>
-                <div class="scale__item" data-step="5"></div>
-            </div>
-        </div>
-        
-        <div>
-            <div class="sign-in-up text-right">
-                <a href="#">Sign in</a>
-                <span> | </span>
-                <a href="#">Sign up</a>
-            </div>
-            <div>
-                Information service <input class="button_green_circle" type="button" value="?">
-            </div>
-        </div>
-    </div>
-    <!-- END .trains-header -->
+	<div class="trains-header">
+		<div>
+			<h2 class="text_dark">Select train</h2>
+			<div class="scale">
+				<div class="scale__item done" data-step="1"></div>
+				<div class="scale__item activ" data-step="2"></div>
+				<div class="scale__item" data-step="3"></div>
+				<div class="scale__item" data-step="4"></div>
+				<div class="scale__item" data-step="5"></div>
+			</div>
+		</div>
 
-    <!-- Legend -->
-    <div class="trains-leg">
-        <h3>LEG 1</h3>
-        <div class="trains-leg__field"><div>Khabarovsk, Russia</div><div class="icon__arrow-right"></div></div>
-        <div class="trains-leg__field"><div>Moscow, Russia</div></div>
-        <div class="trains-leg__field"><div>15 Juli, 2017</div></div>
-    </div>
-    <!-- END Legend -->
+		<div>
+			<div class="sign-in-up text-right">
+				<a href="#">Sign in</a>
+				<span> | </span>
+				<a href="#">Sign up</a>
+			</div>
+			<div>
+				Information service <input class="button_green_circle" type="button" value="?">
+			</div>
+		</div>
+	</div>
+	<!-- END .trains-header -->
 
-    <!-- Filter -->
-    <div class="trains-filter">
-        <div class="trains-filter__header">
-            <div>
-                <label>Sort trains by <select><option value="...">Departure time</option></select></label>
-            </div>
-            <div>
-                <label>Departure time <select><option value="...">00:00</option></select> - <select><option value="...">24:00</option></select></label>
-            </div>
-            <div>
-                <label>Price <select><option value="...">USD $</option></select></label>
-				<span>Local time</span>
-				<div class="switch">
-					<input class="switch__check" id="switch1" type="checkbox" checked>
-					<label class="switch__label" for="switch1">
-						<span class="switch__slider switch__slider_on"></span>
-						<span class="switch__slider switch__slider_off"></span>
-					</label>
+	<!-- Legend -->
+	<div class="trains-leg">
+		<h3>LEG 1</h3>
+		<div class="trains-leg__field">
+			<div>Khabarovsk, Russia</div>
+			<div class="icon--arrow-right"></div>
+		</div>
+		<div class="trains-leg__field">
+			<div>Moscow, Russia</div>
+		</div>
+		<div class="trains-leg__field">
+			<div>15 Juli, 2017</div>
+		</div>
+	</div>
+	<!-- END Legend -->
+
+	<!-- Filter -->
+	<div class="trains-filter">
+		<div class="trains-filter__header">
+			<div class="trains-filter__column filter_column_lg">
+				<label class="padding-r20">Sort trains by </label>
+				<select>
+					<option value="...">Departure time</option>
+					<option value="...">00:00</option>
+					<option value="...">01:00</option>
+					<option value="...">02:00</option>
+				</select>
+			</div>
+			<div class="trains-filter__column filter_column_lg">
+				<label class="padding-r20">Departure time </label>
+				<select>
+					<option value="...">00:00</option>
+					<option value="...">01:00</option>
+					<option value="...">02:00</option>
+					<option value="...">03:00</option>
+				</select>
+				&nbsp;&ndash;&nbsp;
+				<select>
+					<option value="...">24:00</option>
+					<option value="...">00:00</option>
+					<option value="...">01:00</option>
+					<option value="...">02:00</option>
+				</select>
+			</div>
+			<div class="trains-filter__column filter_column_lg">
+				<label class="padding-r20">Price </label>
+				<select>
+					<option value="...">USD $</option>
+				</select>
+				<div class="filter_local-time">
+					<span>LOCAL TIME</span>
+					<div class="switch">
+						<input class="switch__check" id="switch1" type="checkbox" checked>
+						<label class="switch__label" for="switch1">
+							<span class="switch__slider switch__slider_on"></span>
+							<span class="switch__slider switch__slider_off"></span>
+						</label>
+					</div>
 				</div>
-            </div>
-            <div class="text-right">
-                <label class="text_dark"><b>Clear all filters</b> <button class="close_grey"><b><span class="close__icon"></span></button></b></label>
-            </div>
-        </div>
-        <div class="trains-filter__body">
-            <div>
-                <span>Type</span>
-				<div>
-					<input class="button_set2_wt-gray" type="button" value="Button 1">
-					<input class="button_set2_wt-gray" type="button" value="Button 2">
-					<input class="button_set2_wt-gray" type="button" value="Button 3">
-					<input class="button_set2_wt-gray" type="button" value="Button 4">
-				</div>
-            </div>
-            <div>
-                <span>Price</span>
-				<div>
-					<input class="button_set2_wt-gray" type="button" value="Button 1">
-					<input class="button_set2_wt-gray" type="button" value="Button 2">
-					<input class="button_set2_wt-gray" type="button" value="Button 3">
-					<input class="button_set2_wt-gray" type="button" value="Button 4">
-				</div>
-            </div>
-            <div>
-                <span>Class</span>
-				<div>
-					<input class="button_set2_wt-gray" type="button" value="Button 1">
-					<input class="button_set2_wt-gray" type="button" value="Button 2">
-					<input class="button_set2_wt-gray" type="button" value="Button 3">
-					<input class="button_set2_wt-gray" type="button" value="Button 4">
-				</div>
-            </div>
-            <div>
-                <span>MEALS</span>
-				<div>
-					<input class="button_set2_wt-gray" type="button" value="Button 1">
-					<input class="button_set2_wt-gray" type="button" value="Button 2">
-				</div>
-            </div>
-        </div>
-    </div>
-    <!-- END Filter -->
+			</div>
+			<div class="trains-filter__column filter_column_sm text-right">
+				<label class="text_dark">
+					<b>Clear all filters</b> 
+					<button class="close_grey"><b><span class="close__icon"></span></b></button>
+				</label>
+			</div>
+		</div>
 
-    <!-- CONTENT -->
-    <div style="height: 500px; background: gray; color: #fff;">CONTENT
-        
-    </div>
-    <!-- END CONTENT -->
+		<div class="trains-filter__body">
+			<div class="trains-filter__column filter_column_lg">
+				<div class="filter_column__div">Type</div>
+				<div class="filter_column__div">
+					<button class="button_set1_wt-gray  filter_button">Passenger</button>
+					<button class="button_set1_wt-gray  filter_button">Fast</button>
+				</div>
+				<div class="filter_column__div">
+					<button class="button_set1_wt-gray  filter_button">Firmenny</button>
+					<button class="button_set1_green filter_button">High speed</button>
+				</div>
+			</div>
+			<div class="trains-filter__column filter_column_lg">
+				<div class="filter_column__div">Price</div>
+				<div class="filter_column__div">
+					<button class="button_set1_wt-gray filter_button button_icon_dinamic">Dinamic</button>
+					<button class="button_set1_wt-gray filter_button button_icon_guarantee">Guaranteed</button>
+				</div>
+				<div class="filter_column__div">
+					<button class="button_set1_wt-gray filter_button button_icon_calculated">Calculated</button>
+					<button class="button_set1_wt-gray filter_button button_icon_estimated">Estimated</button>
+				</div>
+			</div>
+			<div class="trains-filter__column filter_column_lg">
+				<div  class="filter_column__div">Class</div>
+				<div class="filter_column__div">
+					<button class="button_set1_wt-gray filter_button">1st class</button>
+					<button class="button_set1_wt-gray filter_button">2nd class</button>
+				</div>
+				<div class="filter_column__div">
+					<button class="button_set1_wt-gray filter_button">3nd class</button>
+					<button class="button_set1_wt-gray filter_button">Seat only</button>
+				</div>
+			</div>
+			<div class="trains-filter__column filter_column_sm">
+				<div  class="filter_column__div">MEALS</div>
+				<div class="filter_column__div">
+					<button class="button_set1_wt-gray filter_button">Yes</button>
+					<button class="button_set1_wt-gray filter_button">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END Filter -->
 
-    <div class="trains-footer">
-        <div>
-            <input class="button_set3_red" type="button" value="CLEAR">
-            <input class="button_set3_green" type="button" value="save">
-            <input class="button_set3_grey" type="button" value="RESTORE">
-        </div>
+	<!-- CONTENT -->
+	<div style="height: 500px; background: gray; color: #fff;">CONTENT
+		<!-- to delete -->
+	</div>
+	<!-- END CONTENT -->
 
-        <div>
-            <input class="button_set3_grey" type="button" value="BACK">
-            <input class="button_set3_green" type="button" value="NEXT">
-        </div>
-    </div>
-    <!-- END .trains-footer -->
+	<div class="trains-footer">
+		<div>
+			<input class="button_set3_red" type="button" value="CLEAR">
+			<input class="button_set3_green" type="button" value="save">
+			<input class="button_set3_gray" type="button" value="RESTORE">
+		</div>
 
-    <script src="js/interface.js"></script>
+		<div>
+			<input class="button_set3_gray" type="button" value="BACK">
+			<input class="button_set3_green" type="button" value="NEXT">
+		</div>
+	</div>
+	<!-- END .trains-footer -->
+
+	<script src="js/interface.js"></script>
 </body>
 
 </html>

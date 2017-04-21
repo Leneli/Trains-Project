@@ -1,3 +1,94 @@
-//Главный файл стилей
-@import 'app/libs/normalize';
-@import "main.scss";
+//Common variables and mixins for all styles
+
+//colors
+//main colors
+$red: #d73737;
+$green: #1ea005;
+$light: #f5f5f5;
+$dark: #303030;
+
+//other colors
+$white: #fff;
+$black: #000;
+$grey: #ececec;
+$light-grey: #f8f8f8;
+$dark-grey: #ccc;
+$orange: #d58d07;
+$blue: #00a9d8;
+$l-green: #309a00;
+
+
+//sizing
+$border-radius: 15px;
+$font-size: 13px;
+$input-height: 26px;
+$standart-padding: $font-size * 1.2;
+$media-smartphones: 480px;
+$media-tablets: 800px;
+
+
+/* Анимация для плавного появления содержимого */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-moz-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-o-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+//common mixins
+@mixin gradient($deg: 180, $colors...) {
+    background-image: -webkit-linear-gradient($deg + deg, $colors);
+    background-image: -moz-linear-gradient($deg + deg, $colors);
+    background-image: -o-linear-gradient($deg + deg, $colors);
+    background-image: -ms-linear-gradient($deg + deg, $colors);
+    background-image: linear-gradient($deg + deg, $colors);
+}
+
+@mixin button-bg( //background
+$color1, $color2, $font-color1, //background active
+$color3, $color4, $font-color2, //border color
+$color5, $color6, //border color active
+$color7, $color8) {
+    @include gradient(180, $color1, $color2);
+    color: $font-color1;
+    &:hover {
+        @include gradient(180, $color2, $color1);
+    }
+    &:active {
+        @include gradient(180, $color3, $color4);
+        color: $font-color2;
+    }
+    &::after {
+        @include gradient(180, $color5, $color6);
+        &:hover {
+            @include gradient(180, $color6, $color5);
+        }
+        &:active {
+            @include gradient(180, $color7, $color8);
+        }
+    }
+}
+
+@mixin transition($params...) {
+    -webkit-transition: $params;
+    -moz-transition: $params;
+    -o-transition: $params;
+    transition: $params;
+}
+
+
+//подключенные файлы
+@import "app/libs/normalize";
+@import "sprite";
+@import "styles/**/*.scss";

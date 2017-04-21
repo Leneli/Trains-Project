@@ -1,0 +1,116 @@
+//Trains-template: header, footer, other common elements
+.trains {
+	&-header,
+	&-footer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		@media screen and (max-width: $media-smartphones) {
+			flex-direction: column-reverse;
+			&>div {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				&>* {
+					flex-grow: 1;
+				}
+			}
+		}
+	}
+	&-header {
+		margin-bottom: 10px;
+	}
+	&-footer {
+		margin-top: 36px;
+	}
+	&-header>div {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	//Red field with routes
+	&-leg {
+		display: flex;
+		align-items: center;
+		background: $red;
+		border-radius: 4px 4px 0 0;
+		padding: 8px 26px;
+		h3 {
+			color: $white;
+			margin: 0;
+		}
+		&__field {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background-color: $white;
+			width: 220px;
+			height: 30px;
+			border-radius: 2px;
+			margin-right: 3px;
+			padding: 0 10px;
+		}
+		&__field:first-of-type {
+			margin-left: 16px;
+		}
+	}
+	//Filter
+	&-filter {
+		display: table;
+		width: 100%;
+		background: $light;
+		color: #666;
+		border: 2px solid $light;
+		border-top: 0;
+
+		&__header {
+			background: $white;
+			height: 44px;
+			.trains-filter__column {vertical-align: middle;}
+		}
+		&__body {
+			height: 85px;
+			.trains-filter__column {vertical-align: baseline;}
+		}
+		&__header,
+		&__body {
+			display: table-row;
+			vertical-align: middle;
+		}
+
+		//columns
+		.filter_column_lg {width: 30%;}
+		.filter_column_sm {width: 10%;}
+		&__column {
+			display: table-cell;
+			padding: 10px;
+
+			//in .trains-filter__header
+			.filter_local-time {
+				display: inline-block;
+				padding-left: 20px;
+			}
+
+			//bottons in .trains-filter__body
+			.filter_button {
+				min-width: 96px;
+				width: 90%;
+				overflow: hidden;
+				text-transform: none;
+				&:not(:last-child) {margin-bottom: 10px;}
+			}
+
+			//alignment divs in .trains-filter__body
+			.filter_column__div {
+				display: table-cell;
+				&:first-child {
+					padding-right: 15px;
+					padding-top: 4px;
+					vertical-align: top;
+				}
+			}
+
+		}
+	}
+}

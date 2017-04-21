@@ -1,0 +1,36 @@
+.select-table {
+	margin-top: 18px;
+	width: 100%;
+
+	//header
+	&__head {
+		& > td, & > th {
+			height: 30px;
+			color: $white;
+			font-size: 11px;
+			font-weight: bold;
+			padding: 0;
+			text-transform: uppercase;
+			vertical-align: middle;
+			empty-cells: show;
+			min-width: 15px;
+			&:first-child {border-radius: 15px 0 0 15px;}
+			&:last-child  {border-radius: 0 15px 15px 0;}
+		}
+
+		&_dark {
+			& > td, & > th {background: $dark;}
+		}
+
+		&_grey {
+			& > td, & > th {
+				background: $grey;
+				color: $dark;
+			} 
+		}
+	}
+
+	&__tbody {
+		&_underline {border-bottom: 2px solid rgba(216, 57, 59, 0.52);}
+	}
+}

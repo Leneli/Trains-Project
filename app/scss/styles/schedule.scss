@@ -1,0 +1,196 @@
+$legend: no-trains, available, selected, today, not-available;
+$item-size: 20px;
+$item-border: 2px;
+$item-font: 11px;
+
+$month-width: 441px;
+$month-height: 410px;
+$month-height-head: 34px;
+$month-margin: 30px;
+$month-font-size: 18px;
+$arrow-width: 40px;
+
+$lilo: #cc9999;
+$gr-ava: #36b71b;
+$gr-sel: #009900;
+$g-not: #999999;
+
+
+//list with legend items
+@mixin leg-item($color, $border, $background) {
+	color: $color;
+	border-color: $border;
+	background-color: $background;
+}
+
+.schedule-legend {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	& > li {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	@each $item in $legend {
+		&__#{$item} {
+			margin-right: 20px;
+			&::before {
+				content: "1";
+				display: inline-block;
+				width: $item-size;
+				height: $item-size;
+				line-height: $item-font + ($item-border * 2);
+				font-size: $item-font;
+				border-radius: 50%;
+				border: $item-border solid;
+				text-align: center;
+				margin-right: 9px;
+
+				@if $item == "no-trains" {
+					@include leg-item($lilo, $lilo, $white);
+				} @else if $item == "available" {
+					@include leg-item($dark, $gr-ava, $gr-ava);
+				} @else if $item == "selected" {
+					@include leg-item($white, $gr-sel, $gr-sel);
+				} @else if $item == "today" {
+					@include leg-item($dark, $white, $white);
+					font-weight: bold;
+				} @else if $item == "not-available" {
+					@include leg-item($g-not, $white, $white);
+					font-weight: bold;
+				}
+
+			}
+		}
+	} 
+}
+
+//block .block-legend
+.block-legend {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+
+//slider with for months
+@mixin arrows($url, $left: auto, $right: auto) {
+	position: absolute;
+	left: $left;
+	right: $right;
+	height: 100%;
+	width: $arrow-width;
+	background-image: url($url);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	&:hover {
+		background-color: rgba(#999999, .05);
+	}
+}
+
+
+.block-slider {
+	position: relative;
+	width: 100%;
+
+	&__arrow{
+		&_l {@include arrows($url: "../img/left.png", $left: 0);}
+		&_r {@include arrows($url: "../img/right.png", $right: 0);}
+	}
+
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: $month-height;
+		padding: 0 $arrow-width;
+		overflow: hidden;
+	}
+
+	&_margin {
+		margin: 30px 0 0 0;
+	}
+}
+
+.month {
+	position: relative;
+	width: $month-width;
+	flex-basis: $month-width;
+	height: $month-height;
+	margin: 0 $month-margin;
+	float: left;
+	font-size: $month-font-size;
+	background: rgba(211, 211, 211, 0.14);
+	border-radius: 5px;
+
+	&__header {
+		position: absolute;
+		left: -7px;
+		width: $month-width + 14px;
+		height: $month-height-head;
+		line-height: $month-height-head;
+		background: $red;
+		color: $white;
+		text-align: center;
+		border-radius: 17px;
+	}
+
+	&__calender {
+		margin-top: $month-height-head;
+		width: 100%;
+		height: $month-height - $month-height-head;
+		
+		//убрать на всякий случай бордеры
+		
+
+		& > tbody {
+			text-align: center;
+		}
+
+		& tr {
+			margin: 10px 0;
+			
+		}
+		& th {font-weight: normal;}
+		& td,
+		& th {
+			min-width: 40px;
+			min-height: 40px;
+			font-size: $month-font-size;
+		}
+	}
+
+	&__day {
+		@mixin day-bg($url) {
+			background-image: url($url);
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+		}
+
+		&_notrains {
+			color: $lilo;
+			@include day-bg("../img/no-trains.png");
+		}
+
+		&_available {
+			@include day-bg("../img/available.png");
+			cursor: pointer;
+		}
+
+		&_selected {
+			color: $white;
+			@include day-bg("../img/selected.png");
+			cursor: pointer;
+		}
+
+		&_today {
+			font-weight: bold;
+		}
+
+		&_last {
+			color: $g-not;
+		}
+	}
+}

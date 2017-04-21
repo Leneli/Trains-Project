@@ -1,5 +1,6 @@
 node_modules
 psd
+.vscode
 *.psd
 *.pdf
 *.txt

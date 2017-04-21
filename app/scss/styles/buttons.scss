@@ -1,0 +1,169 @@
+@mixin button-size($height: 32px, $min: 32px, $width: 100px, $font: 11px, $padding: 10px, $transform: uppercase) {
+    height: $height;
+    max-width: 500px;
+    min-width: $min;
+    width: $width;
+    padding: 0 $padding;
+    font-size: $font;
+    line-height: $height - 2;
+    text-transform: $transform;
+}
+
+%shadow {
+    box-shadow: 0 2px 6px rgba($dark, .15);
+}
+
+//button sets
+*[class^="button"],
+input[class^="button"] {
+    display: inline-block;
+    position: relative;
+    border-radius: $border-radius;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: none;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        border-radius: $border-radius;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        z-index: -1;
+    }
+    
+    &[class*="_set1"] {
+        @include button-size($height: 26px, $min: 40px, $width: auto)
+    }
+    &[class*="_set2"] {
+        @include button-size($height: 20px, $min: 24px, $width: auto, $font: 10px)
+    }
+    &[class*="_set3"] {
+        @include button-size()
+    }
+
+    &[class*="_red"] {
+        @include button-bg( $color1: #f15254, $color2: #d93a3c, $font-color1: #fff, $color3: #d8393b, $color4: #d8393b, $font-color2: #fff, $color5: #f15254, $color6: #d93a3c, $color7: #d8393b, $color8: #d8393b);
+        //shadow
+        @extend %shadow;
+    }
+    &[class*="_green"] {
+        @include button-bg( $color1: #33b617, $color2: #1da001, $font-color1: #fff, $color3: #3d7a3c, $color4: #5eae5e, $font-color2: #fff, $color5: #33b617, $color6: #1da001, $color7: #3d7a3c, $color8: #5eae5e);
+        //shadow
+        @extend %shadow;
+    }
+    &[class*="_gray"] {
+        @include button-bg( $color1: #fff, $color2: #e7e7e7, $font-color1: $dark, $color3: #1da001, $color4: #33b617, $font-color2: #fff, $color5: #eee, $color6: #aaa, $color7: #3d7a3c, $color8: #5eae5e);
+        //shadow
+        @extend %shadow;
+    }
+    &[class*="_black"] {
+        @include button-bg( $color1: #676567, $color2: #303030, $font-color1: #fff, $color3: #303030, $color4: #676567, $font-color2: #fff, $color5: #303030, $color6: #303030, $color7: #303030, $color8: #303030);
+    }
+    &[class*="_wt-gray"] {
+        @include button-bg( $color1: #fff, $color2: #f7f7f7, $font-color1: $dark, $color3: #fff, $color4: #fff, $font-color2: $dark, $color5: #eee, $color6: #aaa, $color7: #aaa, $color8: #aaa);
+        //shadow
+        @extend %shadow;
+    }
+    &[class*="_white"] {
+        background-color: $white;
+        border-color: $white;
+        color: $red;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    &[class*="_nocolor"] {
+        background-color: rgba($white, 0);
+        border-color: inherit;
+        color: inherit;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    &[class*="_circle"] {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+//button close
+button.close {
+    @mixin close( $position-type, $cross-size, $cross-color, $cross-opacity, $position-top, $position-right, $position-bottom, $position-left) {
+        position: $position-type;
+        background: transparent;
+        border: 0;
+        color: $cross-color;
+        opacity: $cross-opacity;
+        font-size: $cross-size;
+        font-weight: normal;
+        outline: none;
+        top: $position-top;
+        right: $position-right;
+        bottom: $position-bottom;
+        left: $position-left;
+        /* Крестик */
+        span.close__icon {
+            display: block;
+            &::before {
+                content: '×';
+                font-family: "Times New Roman";
+                text-shadow: none;
+            }
+        }
+        &:hover {
+            color: inherit;
+            opacity: 1;
+        }
+    }
+    /* Кнопка "закрыть" в блоке .red-window */
+    &_in-red-window {
+        @include close(absolute, ($font-size * 3), $white, 0.6, 0, 10px, auto, auto);
+    }
+    /* Кнопка "закрыть" в блоке .red-window */
+    &_in-popup {
+        @include close(absolute, ($font-size * 3), #8a8a8a, 0.6, 0, 10px, auto, auto);
+    }
+    /* Кнопка в фильтре */
+    &_grey {
+        @include close(relative, ($font-size * 2), #666, 1, -2px, 5px, auto, auto);
+    }
+}
+
+//button square
+.square {
+    @mixin square-sizing($s-height: $input-height) {
+        width: $s-height;
+        height: $s-height;
+        flex-grow: 0;
+    }
+    input.square,
+    button.square {
+        @include square-sizing();
+    }
+}
+
+
+//buttons with icon
+$buttons: dinamic, guarantee, calculated, estimated;
+
+.button_icon {
+    @each $item in $buttons {
+        &_#{$item} {
+            &::before {
+                content: "";
+                display: inline-block;
+				vertical-align: middle;
+                margin-right: 3px;
+                //add styles for icon
+                @extend .icon--#{$item};
+            }
+        }
+    }
+}

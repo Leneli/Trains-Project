@@ -1,0 +1,306 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon--adult {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2221px;
+  width: 11px;
+  height: 23px;
+}
+.icon--arrow-right {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -75px;
+  width: 24px;
+  height: 8px;
+}
+.icon--available-date {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -4087px;
+  width: 46px;
+  height: 46px;
+}
+.icon--available {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -4203px;
+  width: 46px;
+  height: 46px;
+}
+.icon--calculated {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1156px;
+  width: 14px;
+  height: 16px;
+}
+.icon--calendar {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1588px;
+  width: 16px;
+  height: 18px;
+}
+.icon--carriage {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -561px;
+  width: 23px;
+  height: 13px;
+}
+.icon--carriage_check_box {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2784px;
+  width: 24px;
+  height: 25px;
+}
+.icon--child {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1501px;
+  width: 9px;
+  height: 17px;
+}
+.icon--collapse {
+  background-image: url(../img/sprite.png);
+  background-position: 0px 0px;
+  width: 13px;
+  height: 5px;
+}
+.icon--cross {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3074px;
+  width: 39px;
+  height: 39px;
+}
+.icon--dinamic {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1242px;
+  width: 18px;
+  height: 16px;
+}
+.icon--download-black {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3183px;
+  width: 40px;
+  height: 40px;
+}
+.icon--download-green {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3517px;
+  width: 44px;
+  height: 44px;
+}
+.icon--estimated {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1070px;
+  width: 18px;
+  height: 16px;
+}
+.icon--facebook {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3631px;
+  width: 44px;
+  height: 44px;
+}
+.icon--female {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -396px;
+  width: 12px;
+  height: 12px;
+}
+.icon--google-plus {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3745px;
+  width: 44px;
+  height: 44px;
+}
+.icon--guarantee {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1414px;
+  width: 16px;
+  height: 17px;
+}
+.icon--infant {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1328px;
+  width: 15px;
+  height: 16px;
+}
+.icon--large_pill {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2974px;
+  width: 30px;
+  height: 30px;
+}
+.icon--left {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2037px;
+  width: 12px;
+  height: 22px;
+}
+.icon--mail-small {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -478px;
+  width: 17px;
+  height: 13px;
+}
+.icon--mail {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3403px;
+  width: 44px;
+  height: 44px;
+}
+.icon--male {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -314px;
+  width: 12px;
+  height: 12px;
+}
+.icon--no-map {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1946px;
+  width: 23px;
+  height: 21px;
+}
+.icon--no-trains {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3293px;
+  width: 40px;
+  height: 40px;
+}
+.icon--paper-ticket {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -644px;
+  width: 25px;
+  height: 15px;
+}
+.icon--pencil {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2879px;
+  width: 24px;
+  height: 25px;
+}
+.icon--print {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3859px;
+  width: 44px;
+  height: 44px;
+}
+.icon--revert_bot {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2596px;
+  width: 24px;
+  height: 24px;
+}
+.icon--revert_bot_click {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2314px;
+  width: 24px;
+  height: 24px;
+}
+.icon--revert_top {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2408px;
+  width: 24px;
+  height: 24px;
+}
+.icon--revert_top_click {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2502px;
+  width: 24px;
+  height: 24px;
+}
+.icon--right {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2129px;
+  width: 12px;
+  height: 22px;
+}
+.icon--s1 {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1856px;
+  width: 20px;
+  height: 20px;
+}
+.icon--s2 {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1676px;
+  width: 20px;
+  height: 20px;
+}
+.icon--s3 {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -1766px;
+  width: 20px;
+  height: 20px;
+}
+.icon--selected {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -4319px;
+  width: 46px;
+  height: 46px;
+}
+.icon--small_pill_with_tick {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -984px;
+  width: 16px;
+  height: 16px;
+}
+.icon--star_grey {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -899px;
+  width: 14px;
+  height: 15px;
+}
+.icon--star_yellow {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -729px;
+  width: 14px;
+  height: 15px;
+}
+.icon--tick-green {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -153px;
+  width: 12px;
+  height: 10px;
+}
+.icon--tick {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -233px;
+  width: 12px;
+  height: 11px;
+}
+.icon--time {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -814px;
+  width: 15px;
+  height: 15px;
+}
+.icon--twitter {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -3973px;
+  width: 44px;
+  height: 44px;
+}
+.icon--warning {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -2690px;
+  width: 24px;
+  height: 24px;
+}
+.icon--yes {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -4435px;
+  width: 51px;
+  height: 51px;
+}

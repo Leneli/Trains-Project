@@ -1,0 +1,73 @@
+@mixin switch( $switch-width, // ширина подложки
+$switch-height, // высота подложки
+$switch-radius, // border-radius для подложки
+$switch-background, // цвет подложки
+$ring, // размер круга/кнопки
+$ring-radius // border-radius для кнопки
+) {
+    &,
+    &__label,
+    &__slider {
+        width: $switch-width;
+        height: $switch-height;
+        cursor: pointer;
+    }
+    &__check:checked+&__label &__slider_on {
+        width: $switch-width;
+    }
+    &__check:checked+&__label &__slider_off {
+        width: $switch-height;
+    }
+    /* кнопка переключателя */
+    &__slider_off:after {
+        width: $ring;
+        height: $ring;
+        border-radius: $ring-radius;
+        top: ($switch-height / 2) - ($ring / 2);
+    }
+    &__slider {
+        border-radius: $switch-radius;
+        box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.15) inset, 0 0 2px rgba(0, 0, 0, 0.1) inset, 0 4px 2px 1px rgba(0, 0, 0, 0.1) inset, 0 $switch-radius $switch-radius 0 rgba(0, 0, 0, 0.07) inset;
+        &_on {
+            width: $switch-height;
+            background: $switch-background;
+        }
+    }
+}
+
+.switch {
+    @include switch(26px, 12px, 6px, #41fb19, 16px, 50%);
+    position: relative;
+    display: inline-block;
+    &__check,
+    &__label,
+    &__slider,
+    &__slider_off:after {
+        position: absolute;
+    }
+    &__check {
+        opacity: 0;
+    }
+    &__label {
+        top: 0;
+        left: 0;
+    }
+    &__slider {
+        top: 0;
+        @include transition(width 0.15s linear);
+        &_on {
+            left: 0;
+        }
+        &_off {
+            right: 0;
+            background: $white;
+            &:after {
+                content: '';
+                left: -2px;
+                background: $white;
+                @include gradient(0, rgba($black, 0.06) 0%, rgba($white, 0.06) 100%);
+                box-shadow: 0 0 1px 1px #fff inset, 0 0 2px 1px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}

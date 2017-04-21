@@ -15,149 +15,38 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body style="width: 90%; margin: auto;">
 
-<div class="trains-header">
-	<div class="scale">1-----------2-----------3-----------4</div>
-	<div>
-		<div class="sign-in-up">
-			<a href="#">Sign in</a>
-			<span> | </span>
-			<a href="#">Sign up</a>
-		</div>
-		<div>
-			Information service <input class="button_info" type="button" value="?">
-		</div>
-	</div>
-</div><!-- END .trains-header -->
-
-<div class="trains-legs">
-	<div class="trains-legs__header">Legs</div><!-- END .trains-legs__header -->
-	
-	<div class="trains-legs__filters">
-		<div class="trains-legs__filters__sort">
-			<div class="trains-legs__filters__item">
-				<span>Sort trains by <select><option value="...">option</option></select></span>
-			</div>
-			
-			<div class="trains-legs__filters__item">
-				<span>Departure time <select><option value="...">option</option></select> - <select><option value="...">option</option></select></span>
-			</div>
-			
-			<div class="trains-legs__filters__item">
-				<span>Price <select><option value="...">option</option></select></span>
-				<span>Local tome</span>
-				<div class="switch">
-					<input class="switch__check" id="switch1" type="checkbox" checked>
-					<label class="switch__label" for="switch1">
-						<span class="switch__slider switch__slider_on"></span>
-						<span class="switch__slider switch__slider_off"></span>
-					</label>
-				</div>
-			</div>
-			
-			<div class="trains-legs__filters__item">
-				<span>Clear all filters <button class="close_grey"><span class="close__icon"></span></button></span>
-			</div>
-		</div>
-		<div class="trains-legs__filters__tags">
-			<div class="trains-legs__filters__item">
-				<span>Type</span>
-				<div>
-					<input class="button_set2_gray" type="button" value="Button 1">
-					<input class="button_set2_gray" type="button" value="Button 2">
-					<input class="button_set2_gray" type="button" value="Button 3">
-					<input class="button_set2_gray" type="button" value="Button 4">
-				</div>
-			</div>
-			
-			<div class="trains-legs__filters__item">
-				<span>Type</span>
-				<div>
-					<input class="button_set2_gray" type="button" value="Button 1">
-					<input class="button_set2_gray" type="button" value="Button 2">
-					<input class="button_set2_gray" type="button" value="Button 3">
-					<input class="button_set2_gray" type="button" value="Button 4">
-				</div>
-			</div>
-			
-			<div class="trains-legs__filters__item">
-				<span>Type</span>
-				<div>
-					<input class="button_set2_gray" type="button" value="Button 1">
-					<input class="button_set2_gray" type="button" value="Button 2">
-					<input class="button_set2_gray" type="button" value="Button 3">
-					<input class="button_set2_gray" type="button" value="Button 4">
-				</div>
-			</div>
-			
-			<div class="trains-legs__filters__item">
-				<span>Type</span>
-				<div>
-					<input class="button_set2_gray" type="button" value="Button 1">
-					<input class="button_set2_gray" type="button" value="Button 2">
-				</div>
-			</div>
-		</div>
-	</div><!-- END .trains-legs__filters -->
-</div><!-- END .trains-legs -->
-
-<div class="trains-main">
-	<table class="trains-main__table">
+	<table class="select-table">
 		<thead>
-			<tr>
+			<tr class="select-table__head select-table__head_dark">
 				<td>Train</td>
 				<td>Departure</td>
-				<td>Arrival</td>
+				<td>arrival</td>
 				<td>Class</td>
 				<td>Tickets</td>
-				<td><div class="person_adult"></div><span>Adult</span></td>
-				<td><div class="person_child"></div>Child</td>
-				<td><div class="person_infant"></div>Infant</td>
+				<td><span class="icon--adult"></span> Adult</td>
+				<td><span class="icon--child"></span> Child</td>
+				<td><span class="icon--infant"></span> Infant</td>
+				<td></td>
 			</tr>
 		</thead>
 
-		<tbody>
-			<tr>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
-				<td>7</td>
-				<td>8</td>
+		<tbody class="select-table__tbody_underline">
+			<tr class="select-row">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 		</tbody>
-		<tbody>
-			<tr>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
-				<td>7</td>
-				<td>8</td>
-			</tr>
-		</tbody>
-	</table><!-- END .trains-main__table -->
-</div><!-- END .trains-main -->
+	</table>
 
-<div class="trains-footer">
-	<div>
-		<input class="button_set3_red" type="button" value="CLEAR">
-		<input class="button_set3_green" type="button" value="SAVE">
-		<input class="button_set3_grey" type="button" value="RESTORE">
-	</div>
-	
-	<div>
-		<input class="button_set3_grey" type="button" value="BACK">
-		<input class="button_set3_green" type="button" value="NEXT">
-	</div>
-</div><!-- END .trains-footer -->
-
-    <script src="js/interface.js"></script>
 </body>
 
 </html>

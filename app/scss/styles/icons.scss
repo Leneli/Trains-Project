@@ -1,0 +1,60 @@
+$btn-arrows: revert_bot, revert_top;
+
+
+*[class^="icon--"] {display: inline-block;};
+
+
+@each $item in $btn-arrows {
+	.icon--#{$item} {
+		display: inline-block;
+		border: none;
+		&:hover {
+			@extend .icon--#{$item}_click;
+		}
+	}
+}
+
+
+//Train types, list
+.train-type {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	&__item {
+		display: inline-block;
+		width: 36px;
+		height: 15px;
+		line-height: 13px;
+		font-size: 11px;
+		text-align: center;
+		text-overflow: clip;
+		border: 1px solid;
+		border-radius: 2px;
+
+		&::before {
+			content: attr(data-type);
+		}
+	}
+
+	//colors
+	&_orange {color: $orange;}
+	&_green  {color: $blue;}
+	&_blue   {color: $l-green;}
+}
+
+//Raiting
+.raiting {
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+
+	& > li {display: inline-block;}
+	&__punkt {
+		@extend .icon--star_grey;
+
+		&_yellow {@extend .icon--star_yellow;}
+	}
+}

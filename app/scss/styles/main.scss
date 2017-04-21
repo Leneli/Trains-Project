@@ -1,0 +1,136 @@
+//common styles
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: $font-size;
+    color: $dark;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+h5 {
+    font-size: 10px;
+    font-weight: normal;
+}
+
+h6 {
+    font-size: 8px;
+    font-weight: bold;
+}
+
+input,
+button,
+select,
+option {
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+    padding: 0 4px;
+    height: $input-height;
+    box-sizing: border-box;
+}
+
+//helper styles
+.not-margin {
+    margin: 0!important;
+}
+
+.no-bold {
+    font-weight: normal;
+}
+
+.no-upper {
+    text-transform: none!important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text_gray {
+    color: $dark-grey;
+}
+
+.text_dark {
+    color: $dark;
+}
+
+.text_red {
+    color: $red;
+}
+
+.warning-input {
+    border-color: $red;
+}
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+.padding-r20 {
+    padding-right: 20px;
+}
+
+.padding-r30 {
+    padding-right: 30px;
+}
+
+//links: sing in & sing up
+.sign-in-up {
+    font-weight: bold;
+    margin-bottom: 10px;
+    & a,
+    & a:visited {
+        text-decoration: none;
+        color: $dark;
+    }
+    & a:hover {
+        color: $red;
+    }
+}
+
+
+
+
+
+
+//TEST - тестовый вспомогательный класс для первого шага
+//чтобы для наглядности разместить все окна рядом
+//по завершении - УДАЛИТЬ
+.TEST {
+    display: flex;
+    justify-content: space-between;
+    &>* {
+        flex-basis: 30%;
+    }
+}
+//TEST - конец
+

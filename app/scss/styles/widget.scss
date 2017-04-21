@@ -1,0 +1,179 @@
+//tabs
+$tabs-number: 2; //the number of tabs
+.tabs {
+    display: flex;
+    flex-direction: column;
+    min-height: 326px;
+    /* Стили переключателей вкладок (табов) */
+    &__header {
+        display: flex;
+        flex-wrap: nowrap;
+        &_title {
+            display: inline-block;
+            position: relative;
+            flex-basis: 100% / $tabs-number;
+            font-weight: bold;
+            text-align: center;
+            height: $font-size * 2.5;
+            line-height: $font-size * 2.5;
+            font-size: $font-size;
+            background: $light;
+            border: 1px solid $dark-grey;
+            border-left: none;
+            cursor: pointer;
+            &>* {
+                position: inherit;
+            }
+            &:last-of-type {
+                border-right: none;
+            }
+        }
+    }
+    /* Скрыть чекбоксы */
+    &__header>input[type=radio].tabs__header_title {
+        display: none;
+        position: absolute;
+        opacity: 0;
+        /* Стили для активной вкладки */
+        &:checked+label {
+            background: $white;
+            border-bottom: none;
+        }
+    }
+    /* Стили секций с содержанием */
+    &>section:first-of-type {
+        display: block;
+    }
+    &>section {
+        display: none;
+        background: $white;
+        padding: $standart-padding;
+        div {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+        }
+    }
+}
+
+//route form (step 1)
+.route-form {
+    @mixin route-form( $rf-width, $rf-height) {
+        width: $rf-width;
+        height: $rf-height;
+        @media screen and (max-width: $media-tablets) {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    @include route-form(400px, auto);
+    position: relative;
+    border: 1px solid $dark-grey;
+    font-size: $font-size;
+    &__header {
+        background: url(../img/logo.svg) 95% 30% no-repeat $red;
+        color: $white;
+        font-weight: bold;
+        padding: $font-size 90px $font-size $font-size;
+    }
+    &__footer {
+        padding: 0 $standart-padding ($font-size * 0.8) $standart-padding;
+    }
+    /* inputs */
+    &__labels {
+        display: flex;
+        justify-content: space-between;
+        &>* {
+            flex-grow: 1;
+        }
+        &>input,
+        &>select,
+        &>button {
+            margin-right: $standart-padding;
+        }
+        &>span {
+            line-height: $input-height;
+        }
+        .switch__label {
+            top: 3px;
+        }
+    }
+    &__labels:not(:last-of-type) {
+        margin-bottom: $standart-padding / 2;
+    }
+}
+
+//Journey details and Personal info - tables
+.details-table {
+    $p-padding: 12px;
+    width: 100%;
+    &__title>td,
+    &__client>td {
+        padding-bottom: $p-padding;
+    }
+    &>tbody>tr>td:not(:last-child) {
+        padding-right: $p-padding;
+    }
+    &>tbody>tr>td.details-table_square {
+        width: 26px;
+        padding-right: 0;
+    }
+    &_flex {
+        display: flex;
+        justify-content: space-between;
+    }
+    & input,
+    & select {
+        width: 100%;
+    }
+}
+
+//red-window
+.red-window {
+    //display: none;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: $red;
+    color: $white;
+    text-align: center;
+    &__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        &>* {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        &>p:last-of-type {
+            padding-bottom: 40px;
+        }
+        &>h1,
+        &>h2,
+        &>h3,
+        &>h4,
+        &>h5,
+        &>h5 {
+            color: $white;
+            margin-top: 0;
+        }
+    }
+    &__full-btn {
+        padding: 12px 0;
+        &>input[type=button] {
+            width: 180px;
+        }
+    }
+    &__bottom-btn {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Step 2 - Schedule</title>
+
+	<!-- default styles on site -->
+	<link rel="stylesheet" href="https://trains.realrussia.co.uk/css/jquery/redmond/jquery-ui-1.12.1.min.css">
+	<link rel="stylesheet" href="https://trains.realrussia.co.uk/css/buy-tickets.css?v=98981293">
+
+	<!-- my styles -->
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body style="width: 90%; margin: auto;">
+
+	<h2 class="text_dark">No trains on the specified day. Please, use schedule.</h2>
+
+	<div class="block-legend">
+		<div>
+			<ul class="schedule-legend">
+				<li class="schedule-legend__no-trains">No trains on selected date</li>
+				<li class="schedule-legend__available">Available day</li>
+				<li class="schedule-legend__selected">Selected day</li>
+				<li class="schedule-legend__today">Today</li>
+				<li class="schedule-legend__not-available">Booking not available</li>
+			</ul>
+		</div>
+
+		<div>
+			<span>Time interval</span>
+			<div class="switch">
+				<input class="switch__check" id="switch1" type="checkbox" checked>
+				<label class="switch__label" for="switch1">
+					<span class="switch__slider switch__slider_on"></span>
+					<span class="switch__slider switch__slider_off"></span>
+				</label>
+			</div>
+
+			<div>
+				<select>
+					<option value="...">00:00</option>
+					<option value="...">01:00</option>
+					<option value="...">02:00</option>
+					<option value="...">03:00</option>
+				</select>
+				&nbsp;&ndash;&nbsp;
+				<select>
+					<option value="...">24:00</option>
+					<option value="...">00:00</option>
+					<option value="...">01:00</option>
+					<option value="...">02:00</option>
+				</select>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="block-slider block-slider_margin">
+		<div class="block-slider__arrow_l"></div>
+		<div class="block-slider__arrow_r"></div>
+
+		<div class="block-slider__content">
+			<div class="month">
+				<div class="month__header">February 2017</div>
+
+				<table class="month__calender">
+					<thead>
+						<tr>
+							<th>Sun</th>
+							<th>Mon</th>
+							<th>Tue</th>
+							<th>Wed</th>
+							<th>Thu</th>
+							<th>Fri</th>
+							<th>Sat</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="month__day_last">1</td>
+							<td class="month__day_last">2</td>
+						</tr>
+						<tr>
+							<td class="month__day_last">3</td>
+							<td class="month__day_today">4</td>
+							<td>5</td>
+							<td class="month__day_notrains">6</td>
+							<td>7</td>
+							<td class="month__day_selected">8</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td class="month__day_available">15</td>
+							<td>16</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+							<td>21</td>
+							<td class="month__day_available">22</td>
+							<td>23</td>
+						</tr>
+						<tr>
+							<td>24</td>
+							<td>25</td>
+							<td>26</td>
+							<td>27</td>
+							<td>28</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="month">
+				<div class="month__header">February 2017</div>
+
+				<table class="month__calender">
+					<thead>
+						<tr>
+							<th>Sun</th>
+							<th>Mon</th>
+							<th>Tue</th>
+							<th>Wed</th>
+							<th>Thu</th>
+							<th>Fri</th>
+							<th>Sat</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="month__day_last">1</td>
+							<td class="month__day_last">2</td>
+						</tr>
+						<tr>
+							<td class="month__day_last">3</td>
+							<td class="month__day_today">4</td>
+							<td>5</td>
+							<td class="month__day_notrains">6</td>
+							<td>7</td>
+							<td class="month__day_selected">8</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td class="month__day_available">15</td>
+							<td>16</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+							<td>21</td>
+							<td class="month__day_available">22</td>
+							<td>23</td>
+						</tr>
+						<tr>
+							<td>24</td>
+							<td>25</td>
+							<td>26</td>
+							<td>27</td>
+							<td>28</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="month">
+				<div class="month__header">February 2017</div>
+
+				<table class="month__calender">
+					<thead>
+						<tr>
+							<th>Sun</th>
+							<th>Mon</th>
+							<th>Tue</th>
+							<th>Wed</th>
+							<th>Thu</th>
+							<th>Fri</th>
+							<th>Sat</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="month__day_last">1</td>
+							<td class="month__day_last">2</td>
+						</tr>
+						<tr>
+							<td class="month__day_last">3</td>
+							<td class="month__day_today">4</td>
+							<td>5</td>
+							<td class="month__day_notrains">6</td>
+							<td>7</td>
+							<td class="month__day_selected">8</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td class="month__day_available">15</td>
+							<td>16</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+							<td>21</td>
+							<td class="month__day_available">22</td>
+							<td>23</td>
+						</tr>
+						<tr>
+							<td>24</td>
+							<td>25</td>
+							<td>26</td>
+							<td>27</td>
+							<td>28</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="month">
+				<div class="month__header">February 2017</div>
+
+				<table class="month__calender">
+					<thead>
+						<tr>
+							<th>Sun</th>
+							<th>Mon</th>
+							<th>Tue</th>
+							<th>Wed</th>
+							<th>Thu</th>
+							<th>Fri</th>
+							<th>Sat</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="month__day_last">1</td>
+							<td class="month__day_last">2</td>
+						</tr>
+						<tr>
+							<td class="month__day_last">3</td>
+							<td class="month__day_today">4</td>
+							<td>5</td>
+							<td class="month__day_notrains">6</td>
+							<td>7</td>
+							<td class="month__day_selected">8</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td class="month__day_available">15</td>
+							<td>16</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+							<td>21</td>
+							<td class="month__day_available">22</td>
+							<td>23</td>
+						</tr>
+						<tr>
+							<td>24</td>
+							<td>25</td>
+							<td>26</td>
+							<td>27</td>
+							<td>28</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
