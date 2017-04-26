@@ -18,8 +18,9 @@ $select-height: 820px;
 
 //popup in step 2
 .select-window {
-	width: $select-width;
-	height: $select-height;
+	min-width: $select-width;
+	max-width: 90%;
+	min-height: $select-height;
 	background: $white;
 	position: absolute;
 

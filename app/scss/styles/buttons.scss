@@ -167,3 +167,15 @@ $buttons: dinamic, guarantee, calculated, estimated;
         }
     }
 }
+
+
+.button_owner {
+    line-height: 16px;
+    padding: 0 5px;
+    font-size: 10px;
+    font-weight: bold;
+    color: $dark-grey;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-radius: 8px;
+}

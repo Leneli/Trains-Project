@@ -136,7 +136,7 @@ gulp.task("clear", function () {
 gulp.task("default", ["watch"]);
 
 //отправить проект на Github Pages
-gulp.task("gitpages", function () {
-	return gulp.src("dist/**/*.*")
-		.pipe(gulp.dest("../leneli.github.io/trains"));
-});
+//gulp.task("gitpages", function () {
+//	return gulp.src("dist/**/*.*")
+//		.pipe(gulp.dest("../leneli.github.io/trains"));
+//});

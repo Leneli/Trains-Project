@@ -458,7 +458,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 9px;
   height: 17px; }
 
-.icon--collapse {
+.icon--collapse, .select-ul__tickets::after {
   background-image: url(../img/sprite.png);
   background-position: 0px 0px;
   width: 13px;
@@ -1076,6 +1076,17 @@ button.close {
   vertical-align: middle;
   margin-right: 3px; }
 
+.button_owner {
+  line-height: 16px;
+  padding: 0 5px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #ccc;
+  text-transform: uppercase;
+  border: 1px solid;
+  -webkit-border-radius: 8px;
+          border-radius: 8px; }
+
 *[class^="icon--"] {
   display: inline-block; }
 
@@ -1193,11 +1204,22 @@ option {
 .text_red {
   color: #d73737; }
 
+.text-upper10 {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase; }
+
 .warning-input {
   border-color: #d73737; }
 
 .text-upper {
   text-transform: uppercase; }
+
+.padding-b10 {
+  padding-bottom: 10px; }
+
+.padding-t20 {
+  padding-top: 20px; }
 
 .padding-r20 {
   padding-right: 20px; }
@@ -1251,8 +1273,9 @@ option {
     background: rgba(0, 0, 0, 0.5); }
 
 .select-window {
-  width: 756px;
-  height: 820px;
+  min-width: 756px;
+  max-width: 90%;
+  min-height: 820px;
   background: #fff;
   position: absolute; }
   .select-window__content {
@@ -1595,12 +1618,16 @@ option {
 .select-table {
   margin-top: 18px;
   width: 100%; }
+  .select-table td, .select-table th {
+    padding: 0 25px;
+    vertical-align: top; }
+  .select-table .select-row td {
+    padding-top: 15px; }
   .select-table__head > td, .select-table__head > th {
     height: 30px;
     color: #fff;
     font-size: 11px;
     font-weight: bold;
-    padding: 0;
     text-transform: uppercase;
     vertical-align: middle;
     empty-cells: show;
@@ -1618,6 +1645,57 @@ option {
     color: #303030; }
   .select-table__tbody_underline {
     border-bottom: 2px solid rgba(216, 57, 59, 0.52); }
+
+.select-ul, .select-ul__price, .select-ul__tickets, .select-ul__center {
+  min-width: 115px;
+  position: relative;
+  margin: 0;
+  padding: 0; }
+  .select-ul > li, .select-ul__price > li, .select-ul__tickets > li, .select-ul__center > li {
+    display: block; }
+  .select-ul .tic-number, .select-ul__price .tic-number, .select-ul__tickets .tic-number, .select-ul__center .tic-number {
+    display: inline-block;
+    width: 30px;
+    font-weight: bold; }
+
+.select-ol {
+  margin: 0;
+  font-weight: bold;
+  counter-reset: num; }
+  .select-ol > li {
+    list-style: none; }
+    .select-ol > li::before {
+      counter-increment: num;
+      content: counter(num);
+      padding-right: 6px;
+      color: #999; }
+
+.select-ul__price {
+  min-width: 90px; }
+  .select-ul__price > li {
+    text-decoration: underline; }
+    .select-ul__price > li::before {
+      content: "From ";
+      font-size: 10px;
+      opacity: .4; }
+
+.select-ul__tickets {
+  display: inline-block;
+  padding-bottom: 7px;
+  margin-bottom: 7px;
+  border-bottom: 1px solid #ccc; }
+  .select-ul__tickets::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -10px;
+    left: -webkit-calc(50% - 7px);
+    left: calc(50% - 7px); }
+
+.select-ul__center {
+  display: inline-block; }
+  .select-ul__center > li {
+    text-align: left; }
 
 .switch {
   /* кнопка переключателя */
